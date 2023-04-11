@@ -1,0 +1,5 @@
+http://example.com/2023/04/11/%E5%85%B3%E4%BA%8EHoudini%E7%9A%84Python%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/
+http://example.com/
+http://example.com/tags/python/
+http://example.com/categories/Houdini/
+http://example.com/categories/Houdini/Houdini-Python/
