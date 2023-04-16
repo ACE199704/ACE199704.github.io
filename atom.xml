@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-04-12T17:24:16.005Z</updated>
+  <updated>2023-04-15T06:23:43.718Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>色彩空间</title>
+    <link href="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/"/>
+    <id>http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/</id>
+    <published>2023-04-15T06:09:40.000Z</published>
+    <updated>2023-04-15T06:23:43.718Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇文章介绍了 个人对色彩空间的一些理解、制作流程中色彩空间的管理与设置、以及一些软件具体相关的设置</p><span id="more"></span> <h1 id="一、个人理解"><a href="#一、个人理解" class="headerlink" title="一、个人理解"></a>一、个人理解</h1><blockquote><p>毕竟我是一个工科生，所以先用一个最最最工科的思维来理解色彩空间</p></blockquote><p>色彩空间的规则，相当于一套编码器、解码器</p><p>我们要理解的是 我们的电脑屏幕一般都是sRGB的色彩空间<br>但是 我们如果要去渲染的话 都要在线性空间下</p><p>也就是 用色彩空间设置 把原色彩空间下的图片转换为线性空间，然后再去渲染</p><p>一般在制作颜色贴图的时候，因为是根据我们屏幕看到的来制作的，所以是在srgb色彩空间下的<br>制作灰度贴图的时候，是根据线性空间来制作的，所以在线性空间下的。</p><p>那为什么要引入另外的色彩空间呢？例如：ACES-cg等<br>因为这些色彩空间的色域丰富，所以在渲染的时候会保留更多的色彩信息。<br>所以其实是在灯光布置后 输出这个色彩空间的exr图，才会保留更多的色彩信息</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO: loaded ShotGrid config module &#x27;shotgrid_fields_config_standard&#x27; (D:/Program Files/ShotGrid/RV-2022.3.1/plugins/Mu/shotgrid_fields_config_standard.mu)</span><br><span class="line">INFO: Read image info from C:/Users/63201/Desktop/testColor/SP1.2/Toad_Final_Scale_Low_Toad_BaseColor_ACES - ACEScg.png</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIOFile&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;color&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;, &#x27;ocio_color.outColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;&#125;&#125;, &#123;&#x27;nodeType&#x27;: &#x27;RVLensWarp&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#125;&#125;]</span><br><span class="line">INFO: using OCIOFile node for sourceGroup000000_source RVLinearizePipelineGroup</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIOLook&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;look&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;&#125;&#125;]</span><br><span class="line">INFO: using OCIOLook node for sourceGroup000000_source RVLookPipelineGroup</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIODisplay&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;display&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;, &#x27;ocio_display.view&#x27;: &#x27;sRGB&#x27;, &#x27;ocio_display.display&#x27;: &#x27;ACES&#x27;&#125;&#125;]</span><br><span class="line">INFO: using OCIODisplay for display: DELL U2414H (0)</span><br><span class="line">INFO: C:/Users/63201/Desktop/testColor/SP1.2/Toad_Final_Scale_Low_Toad_BaseColor_ACES - ACEScg.png</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本篇文章介绍了 个人对色彩空间的一些理解、制作流程中色彩空间的管理与设置、以及一些软件具体相关的设置&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pipeline" scheme="http://example.com/categories/Pipeline/"/>
+    
+    
+    <category term="Pipeline" scheme="http://example.com/tags/Pipeline/"/>
+    
+  </entry>
   
   <entry>
     <title>关于Houdini的Python环境的搭建</title>
