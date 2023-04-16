@@ -4,5 +4,5 @@ http://example.com/
 http://example.com/tags/python/
 http://example.com/tags/Pipeline/
 http://example.com/categories/Houdini/
-http://example.com/categories/Houdini/Houdini-Python/
 http://example.com/categories/Pipeline/
+http://example.com/categories/Houdini/Houdini-Python/

@@ -90,11 +90,19 @@
 <meta property="og:site_name" content="Luo的TD之旅~">
 <meta property="og:description" content="本篇文章介绍了 个人对色彩空间的一些理解、制作流程中色彩空间的管理与设置、以及一些软件具体相关的设置">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/02.jpeg">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/05.jpg">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/03.png">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/04.png">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/06.png">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/07.png">
+<meta property="og:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/08.png">
 <meta property="article:published_time" content="2023-04-15T06:09:40.000Z">
-<meta property="article:modified_time" content="2023-04-15T06:23:43.718Z">
+<meta property="article:modified_time" content="2023-04-16T17:08:29.511Z">
 <meta property="article:author" content="Luo">
 <meta property="article:tag" content="Pipeline">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/02.jpeg">
 
 
 
@@ -329,15 +337,54 @@
         <p>本篇文章介绍了 个人对色彩空间的一些理解、制作流程中色彩空间的管理与设置、以及一些软件具体相关的设置</p>
 <span id="more"></span> 
 
-<h1 id="一、个人理解"><a href="#一、个人理解" class="headerlink" title="一、个人理解"></a>一、个人理解</h1><blockquote>
+<h1 id="个人理解【可能存在问题···】"><a href="#个人理解【可能存在问题···】" class="headerlink" title="个人理解【可能存在问题···】"></a>个人理解【可能存在问题···】</h1><blockquote>
 <p>毕竟我是一个工科生，所以先用一个最最最工科的思维来理解色彩空间</p>
 </blockquote>
-<p>色彩空间的规则，相当于一套编码器、解码器</p>
+<p>色彩空间的规则，相当于一套<strong>编码器、解码器</strong></p>
 <p>我们要理解的是 我们的电脑屏幕一般都是sRGB的色彩空间<br>但是 我们如果要去渲染的话 都要在线性空间下</p>
 <p>也就是 用色彩空间设置 把原色彩空间下的图片转换为线性空间，然后再去渲染</p>
 <p>一般在制作颜色贴图的时候，因为是根据我们屏幕看到的来制作的，所以是在srgb色彩空间下的<br>制作灰度贴图的时候，是根据线性空间来制作的，所以在线性空间下的。</p>
-<p>那为什么要引入另外的色彩空间呢？例如：ACES-cg等<br>因为这些色彩空间的色域丰富，所以在渲染的时候会保留更多的色彩信息。<br>所以其实是在灯光布置后 输出这个色彩空间的exr图，才会保留更多的色彩信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO: loaded ShotGrid config module &#x27;shotgrid_fields_config_standard&#x27; (D:/Program Files/ShotGrid/RV-2022.3.1/plugins/Mu/shotgrid_fields_config_standard.mu)</span><br><span class="line">INFO: Read image info from C:/Users/63201/Desktop/testColor/SP1.2/Toad_Final_Scale_Low_Toad_BaseColor_ACES - ACEScg.png</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIOFile&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;color&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;, &#x27;ocio_color.outColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;&#125;&#125;, &#123;&#x27;nodeType&#x27;: &#x27;RVLensWarp&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#125;&#125;]</span><br><span class="line">INFO: using OCIOFile node for sourceGroup000000_source RVLinearizePipelineGroup</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIOLook&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;look&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;&#125;&#125;]</span><br><span class="line">INFO: using OCIOLook node for sourceGroup000000_source RVLookPipelineGroup</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIODisplay&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;display&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;, &#x27;ocio_display.view&#x27;: &#x27;sRGB&#x27;, &#x27;ocio_display.display&#x27;: &#x27;ACES&#x27;&#125;&#125;]</span><br><span class="line">INFO: using OCIODisplay for display: DELL U2414H (0)</span><br><span class="line">INFO: C:/Users/63201/Desktop/testColor/SP1.2/Toad_Final_Scale_Low_Toad_BaseColor_ACES - ACEScg.png</span><br></pre></td></tr></table></figure>
+<p><strong>那为什么要引入另外的色彩空间呢？例如：ACES-cg等</strong><br>因为这些色彩空间的色域丰富，所以在渲染计算的时候会保留更多的色彩信息。<br><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/02.jpeg" alt="示例"></p>
+<h1 id="一般Pipeline流程使用的方法"><a href="#一般Pipeline流程使用的方法" class="headerlink" title="一般Pipeline流程使用的方法"></a>一般Pipeline流程使用的方法</h1><ul>
+<li>制作颜色贴图时，使用SRGB输出</li>
+<li>制作线性贴图时，使用Linear输出</li>
+<li>在houdini中<ul>
+<li>颜色贴图的输入 使用SRGB输入解码到线性空间</li>
+<li>线性贴图使用linear直接输入</li>
+<li>渲染时 输出 ACES-cg的 exr贴图即可</li>
+</ul>
+</li>
+<li>在RV、或者nuke、达芬奇中用ACES-cg来转换</li>
+</ul>
+<p><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/05.jpg" alt="示例"></p>
+<p>电影的是DCI-P3～</p>
+<h1 id="假如贴图如果全部使用ACES-cg："><a href="#假如贴图如果全部使用ACES-cg：" class="headerlink" title="假如贴图如果全部使用ACES-cg："></a>假如贴图如果全部使用ACES-cg：</h1><p>例如制作线性贴图时，使用ACES-cg输出–一次从Raw到ACES-cg的编码<br>输入时 ACES-cg 输入 的一次解码<br>这里多了两次转换，而每一次转换都会损失一定的数据<br>所以建议最好还是按照上面的流程来</p>
+<h1 id="在制作贴图时的工作色彩空间："><a href="#在制作贴图时的工作色彩空间：" class="headerlink" title="在制作贴图时的工作色彩空间："></a>在制作贴图时的工作色彩空间：</h1><p>对比的是左右两张图片的差异 左是SP窗口， 右是houdini渲染后输出<br>ACES-cg颜色空间下制作的贴图的效果对比<br><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/03.png" alt="示例"><br>sRGB颜色空间下制作的贴图的效果对比<br><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/04.png" alt="示例"><br>其实差别不是很大，在sRGB空间下的右边的图稍稍深一些<br>所以只要颜色空间编解码正确，在哪个空间制作贴图其实对最后的结果差别不是很大。<br>但是 可以看出来在<strong>ACES-cg空间</strong>下制作的贴图<strong>色彩更加饱满</strong>、以及左右两边的<strong>误差更加小一些</strong></p>
+<blockquote>
+<p>所以在这里其实有一个疑问，假如说是在ACES-cg空间下制作的贴图，<strong>是不是输出ACES-cg会好一些？</strong><br><strong>解释一：</strong>但是在制作的过程中，很多都需要外包，而外包的制作流程是在sRGB下居多，所以可能会考虑到外包的因素，统一使用sRGB<br><strong>解释二：</strong>更多的时候，我们会需要同时用到sp和sd两个工具制作贴图，而这两个如果从别的地方导入的贴图要设置「使用sRGB导入」而 在这两个制作好的贴图之间要设置「使用ACES-cg导入」。这样会导致制作过程更加的混乱，所以还不如直接大家统一使用sRGB导入导出</p>
+</blockquote>
+<h1 id="RV的设置"><a href="#RV的设置" class="headerlink" title="RV的设置"></a>RV的设置</h1><ol>
+<li>根据需要重写了一下插件的代码<br><a href="ocio_source_setup.py">代码</a></li>
+<li>将该文件放在 [RV的安装目录]\plugins\Python  下，替换原有的文件</li>
+<li>点击RV进入配置菜单，在Packages里上加载OpenColorIO的插件包：<br><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/06.png" alt="image"></li>
+<li>重新启动RV，自动会根据图片的名称中含有的关键字，自动设置颜色空间</li>
+</ol>
+<hr>
+<p>这里把RV的一些设置打印了出来。「sRGB图像的输入」</p>
+<ul>
+<li>inColorSpace ：Utility - sRGB - Texture<br>outColorSpace：ACES - ACEScg<br>图片由sRGB空间转换到了ACES - ACEScg空间</li>
+<li>inColorSpace：ACES - ACEScg<br>ocio_display：sRGB<br>最后由ACES - ACEScg空间转换到了sRGB空间 来给大家观看<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INFO: Read image info from C:/Users/63201/Desktop/testColor/SP1.2/Toad_Final_Scale_Low_Toad_BaseColor_Utility - sRGB - Texture.png</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIOFile&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;color&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;Utility - sRGB - Texture&#x27;, &#x27;ocio_color.outColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;&#125;&#125;, &#123;&#x27;nodeType&#x27;: &#x27;RVLensWarp&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#125;&#125;]</span><br><span class="line">INFO: using OCIOFile node for sourceGroup000000_source RVLinearizePipelineGroup</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIOLook&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;look&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;&#125;&#125;]</span><br><span class="line">INFO: using OCIOLook node for sourceGroup000000_source RVLookPipelineGroup</span><br><span class="line">result:[&#123;&#x27;nodeType&#x27;: &#x27;OCIODisplay&#x27;, &#x27;context&#x27;: &#123;&#125;, &#x27;properties&#x27;: &#123;&#x27;ocio.function&#x27;: &#x27;display&#x27;, &#x27;ocio.inColorSpace&#x27;: &#x27;ACES - ACEScg&#x27;, &#x27;ocio_display.view&#x27;: &#x27;sRGB&#x27;, &#x27;ocio_display.display&#x27;: &#x27;ACES&#x27;&#125;&#125;]</span><br><span class="line">INFO: using OCIODisplay for display: DELL U2414H (0)</span><br><span class="line">INFO: C:/Users/63201/Desktop/testColor/SP1.2/Toad_Final_Scale_Low_Toad_BaseColor_Utility - sRGB - Texture.png</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://opencolorio.readthedocs.io/en/latest/api/_index.html#api">相关的API</a></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="SP软件的设置"><a href="#SP软件的设置" class="headerlink" title="SP软件的设置"></a>SP软件的设置</h1><p>具体的设置我就不写了，这里只是提供一些技术上的帮助～<br>SP的设置可以在config.oico中加入这些设置，这样可以方便设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">substance_3d_painter_bitmap_import_8bit: Utility - sRGB - Texture</span><br><span class="line">substance_3d_painter_bitmap_import_16bit: Utility - sRGB - Texture</span><br><span class="line">substance_3d_painter_bitmap_import_floating: Utility - Linear - sRGB</span><br><span class="line">substance_3d_painter_bitmap_export_8bit: Utility - sRGB - Texture</span><br><span class="line">substance_3d_painter_bitmap_export_16bit: Utility - sRGB - Texture</span><br><span class="line">substance_3d_painter_bitmap_export_floating: Utility - Raw</span><br><span class="line">substance_3d_painter_substance_material: Utility - sRGB - Texture</span><br><span class="line">substance_3d_painter_standard_srgb: Utility - sRGB - Texture</span><br></pre></td></tr></table></figure>
+<p>除此之外，SP和SD都要设置环境贴图的空间为Utility - Linear - sRGB(?)<br>(正确的?)：Utility - Linear - sRGB<br><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/07.png" alt="image"><br>(错误的?)：ACES-cg<br><img src="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/08.png" alt="image"></p>
+<h1 id="Houdini的设置"><a href="#Houdini的设置" class="headerlink" title="Houdini的设置"></a>Houdini的设置</h1><p>只是在env中加一个OCIO的环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OCIO = &quot;ocio的地址&quot;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -536,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">一、个人理解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E3%80%90%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98%C2%B7%C2%B7%C2%B7%E3%80%91"><span class="nav-number">1.</span> <span class="nav-text">个人理解【可能存在问题···】</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E8%88%ACPipeline%E6%B5%81%E7%A8%8B%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">一般Pipeline流程使用的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%87%E5%A6%82%E8%B4%B4%E5%9B%BE%E5%A6%82%E6%9E%9C%E5%85%A8%E9%83%A8%E4%BD%BF%E7%94%A8ACES-cg%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">假如贴图如果全部使用ACES-cg：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E5%88%B6%E4%BD%9C%E8%B4%B4%E5%9B%BE%E6%97%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">在制作贴图时的工作色彩空间：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RV%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">RV的设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SP%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">SP软件的设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Houdini%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">Houdini的设置</span></a></li></ol></div>
             
 
           </div>
