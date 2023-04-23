@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-04-16T17:08:29.511Z</updated>
+  <updated>2023-04-23T16:32:05.975Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bat文件的编写</title>
+    <link href="http://example.com/2023/04/23/bat%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/"/>
+    <id>http://example.com/2023/04/23/bat%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/</id>
+    <published>2023-04-23T15:47:13.000Z</published>
+    <updated>2023-04-23T16:32:05.975Z</updated>
+    
+    <content type="html"><![CDATA[<p>在实际使用过程中会涉及到自动化操作(比如需要将xxx文件拷贝到xxx)。自动化操作就可以降低使用者的操作难度，只需双击即可。这样的话，就会设计到.bat文件的编写。<br>本文只是提供了一些案例以及相关的参考文章</p><span id="more"></span><h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol><li><p>创建文件夹：<strong>md</strong> D:\mybat     &#x2F;&#x2F;将在D盘下创建一个名为 mybat的文件夹</p></li><li><p>删除文件夹：<strong>rd</strong> D:\mybat     &#x2F;&#x2F;将删除D盘中的mybat文件夹删除 </p></li><li><p>删除文件夹中的文件： </p><ul><li><strong>del</strong> D:\mybat\sheepmu.txt &#x2F;&#x2F;删除文件sheepmu.txt   </li><li><strong>del</strong> D:\mybat\sheepmu.txt <strong>&#x2F;q</strong> &#x2F;&#x2F;删除时不弹出是否删除的提示框</li></ul></li><li><p>复制文件 ：<strong>copy</strong> D:\mybat\sheepmu.txt D:\mybat1  &#x2F;&#x2F;若D中无mybat1这个文件夹则会创建文件夹再复制 </p></li><li><p>向文件中写入内容：<strong>echo</strong> sheepmu <strong>&gt;&gt;</strong> D:\mybat\sheepmu.txt   </p><ul><li>如果这个文件不存在就创建文件并输入。</li><li>如果是文件夹不存在就不会成功！ </li><li><strong>&gt;&gt;与&gt;的区别是</strong> &gt;是覆盖掉原来的；&gt;&gt;是直接输入到原来的尾部</li></ul></li><li><p>显示文件中内容：<strong>type</strong> D:\mybat\sheepmu.txt</p></li><li><p>更改文件名后缀：<strong>ren</strong> D:\mybat*.txt  *.html</p></li></ol><h1 id="个人案例"><a href="#个人案例" class="headerlink" title="个人案例"></a>个人案例</h1><h2 id="案例1："><a href="#案例1：" class="headerlink" title="案例1："></a>案例1：</h2><p><strong>代码块</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">chcp 65001</span><br><span class="line">@echo off</span><br><span class="line">echo ---------------</span><br><span class="line"></span><br><span class="line">set path_zh_CN=%userprofile%\Documents\maya\2022\zh_CN\scripts</span><br><span class="line">set path_normal=%userprofile%\Documents\maya\2022\scripts</span><br><span class="line"></span><br><span class="line">if exist %path_zh_CN% (</span><br><span class="line">echo %path_zh_CN%</span><br><span class="line">copy  &quot;%cd%\startup\maya\scripts\userSetup.py&quot;  %path_zh_CN%</span><br><span class="line">) else (</span><br><span class="line">echo %path_normal%</span><br><span class="line">copy  &quot;%cd%\startup\maya\scripts\userSetup.py&quot;  %path_normal%</span><br><span class="line">)</span><br><span class="line">echo Maya文件替换完成</span><br><span class="line">pause</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><strong>代码解释</strong></p><ul><li>chcp 65001    在CMD窗口中能正确的显示中文</li><li>@echo off     把后面的回显关闭</li><li>echo ——   打印——</li><li>set xx&#x3D;xx     设置变量<ul><li><strong>%userprofile%    用户配置文件地址。</strong>例如：c:\users\xxx</li></ul></li><li>if exist      如果存在文件夹地址，则…</li><li>copy A B      拷贝A 到 B</li><li>pause         暂停</li></ul><h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><blockquote><blockquote><p><a href="https://blog.csdn.net/weixin_30826761/article/details/95213418"><strong>简单的bat文件编写</strong></a> 这篇文中介绍了一个检查文本文件是否含有xxx信息的安利，如果找到了则xxx</p></blockquote></blockquote><blockquote><blockquote><p><a href="https://blog.csdn.net/CSDN_wangmj/article/details/104151131"><strong>最最基础的bat语言的使用</strong></a> 适合新手～</p></blockquote></blockquote><blockquote><blockquote><p><a href="https://blog.csdn.net/tjcwt2011/article/details/120175323"><strong>进阶版bat语言</strong></a> 之后当字典查～</p></blockquote></blockquote><blockquote><blockquote><p>ps：这周在赶BJFF，所以没有写太多的内容，就这样水一篇文章吧。。</p></blockquote></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;在实际使用过程中会涉及到自动化操作(比如需要将xxx文件拷贝到xxx)。自动化操作就可以降低使用者的操作难度，只需双击即可。这样的话，就会设计到.bat文件的编写。&lt;br&gt;本文只是提供了一些案例以及相关的参考文章&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pipeline" scheme="http://example.com/categories/Pipeline/"/>
+    
+    
+    <category term="Pipeline" scheme="http://example.com/tags/Pipeline/"/>
+    
+  </entry>
   
   <entry>
     <title>色彩空间</title>

@@ -1,3 +1,4 @@
+http://example.com/2023/04/23/bat%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/
 http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/
 http://example.com/2023/04/11/%E5%85%B3%E4%BA%8EHoudini%E7%9A%84Python%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/
 http://example.com/

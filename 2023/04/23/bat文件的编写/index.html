@@ -68,10 +68,12 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Pipeline," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="Luo的TD之旅~" type="application/atom+xml" />
@@ -81,12 +83,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luo的TD之旅~">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="在实际使用过程中会涉及到自动化操作(比如需要将xxx文件拷贝到xxx)。自动化操作就可以降低使用者的操作难度，只需双击即可。这样的话，就会设计到.bat文件的编写。本文只是提供了一些案例以及相关的参考文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bat文件的编写">
+<meta property="og:url" content="http://example.com/2023/04/23/bat%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/index.html">
 <meta property="og:site_name" content="Luo的TD之旅~">
+<meta property="og:description" content="在实际使用过程中会涉及到自动化操作(比如需要将xxx文件拷贝到xxx)。自动化操作就可以降低使用者的操作难度，只需双击即可。这样的话，就会设计到.bat文件的编写。本文只是提供了一些案例以及相关的参考文章">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-23T15:47:13.000Z">
+<meta property="article:modified_time" content="2023-04-23T16:32:05.975Z">
 <meta property="article:author" content="Luo">
+<meta property="article:tag" content="Pipeline">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/"/>
+  <link rel="canonical" href="http://example.com/2023/04/23/bat文件的编写/"/>
 
 
 
 
 
-  <title>Luo的TD之旅~</title>
+  <title>bat文件的编写 | Luo的TD之旅~</title>
   
 
 
@@ -142,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -248,9 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/23/bat%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/" itemprop="url">bat文件的编写</a></h1>
+          <h1 class="post-title" itemprop="name headline">bat文件的编写</h1>
         
 
         <div class="post-meta">
@@ -322,16 +326,69 @@
       
 
       
-        
-          <p>在实际使用过程中会涉及到自动化操作(比如需要将xxx文件拷贝到xxx)。自动化操作就可以降低使用者的操作难度，只需双击即可。这样的话，就会设计到.bat文件的编写。<br>本文只是提供了一些案例以及相关的参考文章</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2023/04/23/bat%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>在实际使用过程中会涉及到自动化操作(比如需要将xxx文件拷贝到xxx)。自动化操作就可以降低使用者的操作难度，只需双击即可。这样的话，就会设计到.bat文件的编写。<br>本文只是提供了一些案例以及相关的参考文章</p>
+<span id="more"></span>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
+<li><p>创建文件夹：<strong>md</strong> D:\mybat     &#x2F;&#x2F;将在D盘下创建一个名为 mybat的文件夹</p>
+</li>
+<li><p>删除文件夹：<strong>rd</strong> D:\mybat     &#x2F;&#x2F;将删除D盘中的mybat文件夹删除 </p>
+</li>
+<li><p>删除文件夹中的文件： </p>
+<ul>
+<li><strong>del</strong> D:\mybat\sheepmu.txt &#x2F;&#x2F;删除文件sheepmu.txt   </li>
+<li><strong>del</strong> D:\mybat\sheepmu.txt <strong>&#x2F;q</strong> &#x2F;&#x2F;删除时不弹出是否删除的提示框</li>
+</ul>
+</li>
+<li><p>复制文件 ：<strong>copy</strong> D:\mybat\sheepmu.txt D:\mybat1  &#x2F;&#x2F;若D中无mybat1这个文件夹则会创建文件夹再复制 </p>
+</li>
+<li><p>向文件中写入内容：<strong>echo</strong> sheepmu <strong>&gt;&gt;</strong> D:\mybat\sheepmu.txt   </p>
+<ul>
+<li>如果这个文件不存在就创建文件并输入。</li>
+<li>如果是文件夹不存在就不会成功！ </li>
+<li><strong>&gt;&gt;与&gt;的区别是</strong> &gt;是覆盖掉原来的；&gt;&gt;是直接输入到原来的尾部</li>
+</ul>
+</li>
+<li><p>显示文件中内容：<strong>type</strong> D:\mybat\sheepmu.txt</p>
+</li>
+<li><p>更改文件名后缀：<strong>ren</strong> D:\mybat*.txt  *.html</p>
+</li>
+</ol>
+<h1 id="个人案例"><a href="#个人案例" class="headerlink" title="个人案例"></a>个人案例</h1><h2 id="案例1："><a href="#案例1：" class="headerlink" title="案例1："></a>案例1：</h2><p><strong>代码块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">chcp 65001</span><br><span class="line">@echo off</span><br><span class="line">echo ---------------</span><br><span class="line"></span><br><span class="line">set path_zh_CN=%userprofile%\Documents\maya\2022\zh_CN\scripts</span><br><span class="line">set path_normal=%userprofile%\Documents\maya\2022\scripts</span><br><span class="line"></span><br><span class="line">if exist %path_zh_CN% (</span><br><span class="line">	echo %path_zh_CN%</span><br><span class="line">	copy  &quot;%cd%\startup\maya\scripts\userSetup.py&quot;  %path_zh_CN%</span><br><span class="line">) else (</span><br><span class="line">	echo %path_normal%</span><br><span class="line">	copy  &quot;%cd%\startup\maya\scripts\userSetup.py&quot;  %path_normal%</span><br><span class="line">)</span><br><span class="line">echo Maya文件替换完成</span><br><span class="line">pause</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>代码解释</strong></p>
+<ul>
+<li>chcp 65001    在CMD窗口中能正确的显示中文</li>
+<li>@echo off     把后面的回显关闭</li>
+<li>echo ——   打印——</li>
+<li>set xx&#x3D;xx     设置变量<ul>
+<li><strong>%userprofile%    用户配置文件地址。</strong>例如：c:\users\xxx</li>
+</ul>
+</li>
+<li>if exist      如果存在文件夹地址，则…</li>
+<li>copy A B      拷贝A 到 B</li>
+<li>pause         暂停</li>
+</ul>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30826761/article/details/95213418"><strong>简单的bat文件编写</strong></a> 这篇文中介绍了一个检查文本文件是否含有xxx信息的安利，如果找到了则xxx</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CSDN_wangmj/article/details/104151131"><strong>最最基础的bat语言的使用</strong></a> 适合新手～</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tjcwt2011/article/details/120175323"><strong>进阶版bat语言</strong></a> 之后当字典查～</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>ps：这周在赶BJFF，所以没有写太多的内容，就这样水一篇文章吧。。</p>
+</blockquote>
+</blockquote>
+
       
     </div>
     
@@ -346,317 +403,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Luo的TD之旅~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" itemprop="url">色彩空间</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-15T14:09:40+08:00">
-                2023-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Pipeline/" itemprop="url" rel="index">
-                    <span itemprop="name">Pipeline</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Pipeline/" rel="tag"># Pipeline</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>本篇文章介绍了 个人对色彩空间的一些理解、制作流程中色彩空间的管理与设置、以及一些软件具体相关的设置</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/04/15/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" rel="next" title="色彩空间">
+                <i class="fa fa-chevron-left"></i> 色彩空间
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/11/%E5%85%B3%E4%BA%8EHoudini%E7%9A%84Python%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Luo的TD之旅~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/11/%E5%85%B3%E4%BA%8EHoudini%E7%9A%84Python%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" itemprop="url">关于Houdini的Python环境的搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-11T23:06:00+08:00">
-                2023-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Houdini/" itemprop="url" rel="index">
-                    <span itemprop="name">Houdini</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Houdini/Houdini-Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Houdini Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>本篇文章具体写了VSCode以及PyCharm配置Houdini、vex环境 以及代码自动补全相关的内容…</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2023/04/11/%E5%85%B3%E4%BA%8EHoudini%E7%9A%84Python%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -666,10 +442,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -677,6 +454,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -697,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -787,6 +577,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">个人案例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B1%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">案例1：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -920,6 +726,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
